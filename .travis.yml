@@ -1,0 +1,27 @@
+sudo: required
+addons:
+  apt:
+    sources:
+      - chef-current-trusty
+    packages:
+      - chefdk
+language: ruby
+env:
+  global:
+    - machine_user=travis
+    - machine_pass=travis
+    - machine_port=22
+    - KITCHEN_YAML=.kitchen.travis.yml
+rvm:
+  - 2.3.1
+dist: trusty
+before_install:
+  - sudo usermod -p "`openssl passwd -1 'travis'`" travis
+script:
+  - /opt/chefdk/embedded/bin/rake
+branches:
+  only:
+    - master
+notifications:
+  slack:
+    secure: Qk+WEH5WMvf145YELlhFjnJs/iibfGkLiwgFZXSP67m9siw0uPKaYqDofvVigwhXzc0y7onTNSq4UaoKKQurL3yRgAbTzx6C9DTiWAjcFQSjs71qQABTKlEHvpzzG/IIqmg9mv/lWLslfgRoFbPNJH7nle9BtPLiiqOeuCaLKiJryny8GnZsJJOHHlYKC1sznyDSKh2T3iuQtGuqX/XzcN+XBBZqtTTrl8LNFaGRzmzn7eCv+JCkRAty1UchXLd931g0OS15SEziVzthrdcnbh2yXqDFSzOMzGGmyuhiP/vX52H2FWX2kysgrhuNrRAebp3xwAY94rty6XXGwuxoEL2iO4nXCVt0pfVsovAI9L7h5H9LBFnjpHIzfYTUjhjLWRgZibYspireymyXupLPlhq8EiWoO/XJB6B0cjaBhuRWE1Jzp1Vp81jyQ0E8BbFlK5B/iMK7s0r9VRdlWox7Gv8y7WfxA+6rxxwQQlVhAM7CkWZSj2xv51U3ddcgjSAsUu3h/aTEQV4p0RlQMLn3ZmRVFFWj7EFY5jBbLhEspikgU2IL1g6LW1l0zHILhJ+KU1olpjzmEY6frKluadH92yglaRodLkDmodW+2ta12yvQuzxhbvS3DEOdrM/Z9/fUm9Vgt5Z+sgSQwSNRtBJUkXCPFyHa5PSdZDngZFhCJKU=

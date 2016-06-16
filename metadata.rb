@@ -1,0 +1,12 @@
+name             'no-ip'
+maintainer       'Christoffer Reijer'
+maintainer_email 'ephracis at gmail'
+license          'GPLv3'
+description      'Installs the No-IP agent on the node'
+long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
+version          '0.1.0'
+issues_url       'http://github.com/simplare-cookbooks/no-ip/issues'
+source_url       'http://github.com/simplare-cookbooks/no-ip'
+depends          'yum-epel'
+depends          'tarball'
+depends          'chef-vault'
