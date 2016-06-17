@@ -28,7 +28,7 @@ deploy:
   provider: chef-supermarket
   user_id: ephracis
   client_key: ".travis/client-key.pem"
-  cookbook_categories: Other
+  cookbook_category: Networking
   on:
     tags: true
 before_deploy:
