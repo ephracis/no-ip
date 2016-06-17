@@ -2,26 +2,38 @@ sudo: required
 addons:
   apt:
     sources:
-      - chef-current-trusty
+    - chef-current-trusty
     packages:
-      - chefdk
+    - chefdk
 language: ruby
 env:
   global:
-    - machine_user=travis
-    - machine_pass=travis
-    - machine_port=22
-    - KITCHEN_YAML=.kitchen.travis.yml
+  - machine_user=travis
+  - machine_pass=travis
+  - machine_port=22
+  - KITCHEN_YAML=.kitchen.travis.yml
+  - secure: HAwu12ztbDZPcXowOeve53+eiAzxMY+mr7x8Ya85efBpzUJtg69GkWE6YXtQRQXW+F+yivMJFP8Ep7O/G4N4ohLr5Wouw9Na7xaWZoCy0woGyEqoEQ8+qqjmLdao4WlzeQmUp3hIyVU4cPtbg+OGmuVB0IQNFpvkbPtu25G38+oW2FU1mKeKpo3anVl+3bKv1s+S3B2Zv+VfsRumpICh8ewvZrjUJlDNM5kleQQQ+3MZJlA3YHGgsRXjKjHv5EYqoiMBUIzQGEcX3PmXHgQvpEFJWyLQwSVthS1NhmocDvt+kCPr6Gtpb/sRbg6H9Xebpp3QvD/FUjmz5LSkKMZPnwYCLx7zeKy5svHVcXCuCH1LM4W6YoU6Vm6DR5aEOvihM/+XBpqoljWLan9LrL4YAxS7koNfznXCId4fcUFbPACyFkHH+3t8dO0N9gbxK1RHOtYbCyjbcTseN4utSD5Ifl5m3ISBWOhoTk2TWqI0o199IqO3Q8Vvi6PvHJ3egS28V6ivEXdx7wY6Z0vdGuKzrog6CM4QKmTbn3uFC3KqQwJlqPnSxC8XeJCa9S801/48KQ7RjUYJ++AYdON/iRZ4ZwftDnyoR1Kih2rBxvBA+UL+68IN6BzOgdgHBWM1hs3q3vYl4tDMjNs+g/w6iTujKpOSrQRyObrG6HVyW38O3Rg=
+  - secure: GZ5y2pZJCjojhcxIsFtJrT72VGyCWN7Yu6lxJaL1vzoFn6ZkI/VSo4nO57533D0A8K6G0wp6LIC1axmrZh+yQfSWPXWURamHhC21T4gMLvKMZl0SnrGbZ4WplnUS5JiuP9Ip+qLE4oja3DTGcNz16uM4m5uhkoDQ4azEqkFkZRREoYXEnyC2vxhDaEaY5I9krfCayYwwMOVU4w8KLEkS9dPsU2nU4Chlrqqw0D6JnE8yo1lGgVYbZNu7wGETXXFSKETsdiNswGCteIh4nxJD7YabG1nugGRJfoEEJ1xU0xJhO8WDlV2DGMdFieeDu/QMSeUU+1RFjQ/wrg+s5beIKCqc6/k4bBG+g899CTkox8q1++smrKsGdu2enzKbWKFmcCz9hcjPILtHd45h1xmpmZxPJtKIbQVA2L8c8RIwdMm2yxygrLNo3DrLbrFo/kjd1fLPxeNeep+eyhvbuKw+0JnWSWpAlpOO9k0V+nszFYhyYVhKhUx30F3+X7GCJHCDNY6aGXOMYe+QeFZd5JNOWWYdYmE9yPsBYhLgJVqIByxnscpDs52jxyplhPk1HPlxar/WfNMn77rfIuCrhpnCdcFlORwfrpnHKzJmY6+KWZn/uqsMgE7XaVAAd9nE2x4HsrkLX4EU8agWDLUAHirWHY1qaC31CytARMo2dqXohm0=
 rvm:
-  - 2.3.1
+- 2.3.1
 dist: trusty
 before_install:
-  - sudo usermod -p "`openssl passwd -1 'travis'`" travis
+- sudo usermod -p "`openssl passwd -1 'travis'`" travis
 script:
-  - /opt/chefdk/embedded/bin/rake
+- "/opt/chefdk/embedded/bin/rake"
 branches:
   only:
-    - master
+  - master
 notifications:
   slack:
     secure: Qk+WEH5WMvf145YELlhFjnJs/iibfGkLiwgFZXSP67m9siw0uPKaYqDofvVigwhXzc0y7onTNSq4UaoKKQurL3yRgAbTzx6C9DTiWAjcFQSjs71qQABTKlEHvpzzG/IIqmg9mv/lWLslfgRoFbPNJH7nle9BtPLiiqOeuCaLKiJryny8GnZsJJOHHlYKC1sznyDSKh2T3iuQtGuqX/XzcN+XBBZqtTTrl8LNFaGRzmzn7eCv+JCkRAty1UchXLd931g0OS15SEziVzthrdcnbh2yXqDFSzOMzGGmyuhiP/vX52H2FWX2kysgrhuNrRAebp3xwAY94rty6XXGwuxoEL2iO4nXCVt0pfVsovAI9L7h5H9LBFnjpHIzfYTUjhjLWRgZibYspireymyXupLPlhq8EiWoO/XJB6B0cjaBhuRWE1Jzp1Vp81jyQ0E8BbFlK5B/iMK7s0r9VRdlWox7Gv8y7WfxA+6rxxwQQlVhAM7CkWZSj2xv51U3ddcgjSAsUu3h/aTEQV4p0RlQMLn3ZmRVFFWj7EFY5jBbLhEspikgU2IL1g6LW1l0zHILhJ+KU1olpjzmEY6frKluadH92yglaRodLkDmodW+2ta12yvQuzxhbvS3DEOdrM/Z9/fUm9Vgt5Z+sgSQwSNRtBJUkXCPFyHa5PSdZDngZFhCJKU=
+deploy:
+  provider: chef-supermarket
+  user_id: ephracis
+  client_key: ".travis/client-key.pem"
+  cookbook_categories: Other
+  on:
+    tags: true
+before_deploy:
+- openssl aes-256-cbc -K $encrypted_5bfc136bb085_key -iv $encrypted_5bfc136bb085_iv
+  -in .travis/client-key.pem.enc -out .travis/client-key.pem -d
