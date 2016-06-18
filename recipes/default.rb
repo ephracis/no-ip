@@ -22,6 +22,7 @@ if vault_access
 
   package 'expect'
   package 'gcc'
+  package 'make'
 
   bash 'install agent' do
     user 'root'
