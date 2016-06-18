@@ -8,3 +8,4 @@ gem 'chefspec'
 gem 'berkshelf'
 gem 'chef-vault'
 gem 'chef-vault-testfixtures'
+gem 'codeclimate-test-reporter', group: :test, require: nil

@@ -5,6 +5,8 @@ addons:
     - chef-current-trusty
     packages:
     - chefdk
+  code_climate:
+    repo_token: d03308bc9406e2b69c70bdfbcc34ec3e76fd10cc5de549fa08cce66b1b2463b8
 language: ruby
 env:
   global:
@@ -25,6 +27,7 @@ notifications:
   slack:
     secure: suGaCS36HiNKPc+EHMnmKZGnA906oPtT+z0UKk69usXnLNFRKSUoqrNh38wgPzT+4Jug7Dd+1PNce9L1sqRfvFjYCdnnLI88OgkgPQipVHtYM32iX/BCYyf9cWjHGgTuNY9CrOXpoL9KbHQGrmXmxAIe4bitZaZH55Mjz6TdJXQx0wJ17pwypcNB4wAtp+CR43F7zY+QacLvhuIFdUmcY2T9Pl/p9np8UyFDkzvAYxK/8dMbF0hZq3mGjrCufCZwnK2TzMm+F5ANneKKhaSNYurxCITOsQvRyQn+SlFqCCBPMitX6CpEfpj8dgUdsr+yMPy7j1+U2GsXjm4IeTXO9d21sxFggMqySFZaTlmn9zb+yFFmv1ms6loEm7no6FOr8tdD/z5vbtxgh3FlyTTxYAS1e6SMeXVfm0iHKhatRXqUVx/UlCOERItrEh/4/X1wgpT/f3qoZUZzr90cb6DATRGwl90luWGW5U28iZTXCLoFExnlnNTHK31z3L4k8Ya0Ng5fPVNocY/SgPZpibSTWM2rxCOmrAvibf3WYhtRblVDr9R92QEuKdj6/Ale6tAYsSy8AymcQTL0B/EpOvjJEbwhe/7zVyYZElD9YRLDEZm5mPYZkC9chNg3lIOizNtGLD75Bw6hP95ny/OfEqEFULS+go5DosbUB/rnJ+NeTJA=
 deploy:
+  edge: true
   provider: chef-supermarket
   user_id: ephracis
   client_key: ".travis/client-key.pem"
